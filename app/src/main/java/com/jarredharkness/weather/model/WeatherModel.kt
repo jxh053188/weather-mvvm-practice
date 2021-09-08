@@ -2,8 +2,13 @@ package com.jarredharkness.weather.model
 
 
 import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+const val CURRENT_WEATHER_ID = 0
+
+@Entity(tableName = "current_weather")
 data class WeatherModel(
     @SerializedName("base")
     val base: String,
@@ -32,4 +37,7 @@ data class WeatherModel(
     val weather: List<Weather>,
     @SerializedName("wind")
     val wind: Wind
-)
+){
+    @PrimaryKey
+    var weatherId: Int = CURRENT_WEATHER_ID
+}
