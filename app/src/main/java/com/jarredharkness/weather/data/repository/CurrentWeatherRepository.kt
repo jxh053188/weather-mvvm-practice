@@ -15,13 +15,13 @@ class CurrentWeatherRepository {
         return null
     }
 
-//    suspend fun getForecastCall(cityName: String): ForecastModel? {
-//        val request = WeatherAPIService.apiClient.getWeather(cityName)
-//
-//        if(request.isSuccessful){
-//            return request.body()!!
-//        }
-//
-//        return null
-//    }
+    suspend fun getForecast(cityName:String): ForecastModel? {
+        val request = WeatherAPIService.apiClient.getForecast(cityName)
+        //Check if device has internet connection
+        if(request.isSuccessful){
+            return request.body()!!
+        }
+
+        return null
+    }
 }
