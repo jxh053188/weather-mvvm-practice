@@ -10,13 +10,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
-import com.jarredharkness.weather.R
 import com.jarredharkness.weather.databinding.CurrentWeatherFragmentBinding
-import com.jarredharkness.weather.databinding.ForecastFragmentBinding
 import com.jarredharkness.weather.ui.mainActivity.MainActivityViewModel
 import com.jarredharkness.weather.utils.TimeUtils
 

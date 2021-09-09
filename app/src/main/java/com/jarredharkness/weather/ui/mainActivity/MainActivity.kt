@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         GET = getSharedPreferences(packageName, MODE_PRIVATE)
         SET = GET.edit()
 
+        viewModel.refreshData("Prague")
+
         val tableLayout = binding.tabLayout
         val viewPager2 = binding.viewPager
         val adapter = FragmentAdapter(supportFragmentManager, lifecycle)
