@@ -1,4 +1,4 @@
-package com.jarredharkness.weather.model
+package com.jarredharkness.weather.model.current
 
 
 import com.google.gson.annotations.SerializedName

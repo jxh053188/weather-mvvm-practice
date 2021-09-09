@@ -1,8 +1,7 @@
 package com.jarredharkness.weather.data.repository
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.jarredharkness.weather.model.WeatherModel
+import com.jarredharkness.weather.model.current.WeatherModel
+import com.jarredharkness.weather.model.forecast.ForecastModel
 import com.jarredharkness.weather.network.WeatherAPIService
 
 class CurrentWeatherRepository {
@@ -15,4 +14,14 @@ class CurrentWeatherRepository {
 
         return null
     }
+
+//    suspend fun getForecastCall(cityName: String): ForecastModel? {
+//        val request = WeatherAPIService.apiClient.getWeather(cityName)
+//
+//        if(request.isSuccessful){
+//            return request.body()!!
+//        }
+//
+//        return null
+//    }
 }

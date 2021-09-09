@@ -1,18 +1,12 @@
 package com.jarredharkness.weather.ui.mainActivity
 
-import android.content.ContentValues.TAG
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jarredharkness.weather.data.repository.CurrentWeatherRepository
-import com.jarredharkness.weather.model.WeatherModel
-import com.jarredharkness.weather.network.WeatherAPIService
-import io.reactivex.android.schedulers.AndroidSchedulers
+import com.jarredharkness.weather.model.current.WeatherModel
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.observers.DisposableSingleObserver
-import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.launch
 
 class MainActivityViewModel: ViewModel() {
