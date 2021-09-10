@@ -3,7 +3,9 @@ package com.jarredharkness.weather.ui.mainActivity
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.birjuvachhani.locus.Locus
 import com.google.android.material.tabs.TabLayoutMediator
 import com.jarredharkness.weather.R
 import com.jarredharkness.weather.databinding.ActivityMainBinding
@@ -27,8 +29,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
         GET = getSharedPreferences(packageName, MODE_PRIVATE)
         SET = GET.edit()
+        Locus.getCurrentLocation(this) { result ->
+            result.location?.let {
+                var lat = result.location!!.latitude
+                var lon = result.location!!.longitude
 
-        viewModel.refreshData("Prague")
+                viewModel.refreshData(lat, lon)
+
+            }
+            result.error?.let {
+                Toast.makeText(
+                    applicationContext,
+                    "Unable to get Location",
+                    Toast.LENGTH_LONG
+                )
+            }
+        }
+
 
         val tableLayout = binding.tabLayout
         val viewPager2 = binding.viewPager

@@ -12,12 +12,14 @@ interface WeatherAPI {
 
     @GET("data/2.5/weather?&units=metric&appid=a7c662a3979ffa3d1f15a6a6c66d840f")
     suspend fun getWeather(
-        @Query("q") cityName: String
+        @Query("lat") lat: Double,
+        @Query("lon") lon: Double
     ): Response<WeatherModel>
 
     @GET("data/2.5/forecast?&units=metric&appid=a7c662a3979ffa3d1f15a6a6c66d840f")
     suspend fun getForecast(
-        @Query("q") cityName: String
+        @Query("lat") lat: Double,
+        @Query("lon") lon: Double
     ): Response<ForecastModel>
 
 }

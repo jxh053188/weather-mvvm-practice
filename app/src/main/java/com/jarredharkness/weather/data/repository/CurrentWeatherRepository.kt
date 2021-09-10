@@ -5,8 +5,8 @@ import com.jarredharkness.weather.model.forecast.ForecastModel
 import com.jarredharkness.weather.network.WeatherAPIService
 
 class CurrentWeatherRepository {
-    suspend fun getCurrentWeather(cityName: String): WeatherModel? {
-        val request = WeatherAPIService.apiClient.getWeather(cityName)
+    suspend fun getCurrentWeather(lat: Double, lon: Double): WeatherModel? {
+        val request = WeatherAPIService.apiClient.getWeather(lat, lon)
 
         if(request.isSuccessful){
             return request.body()!!
@@ -15,8 +15,8 @@ class CurrentWeatherRepository {
         return null
     }
 
-    suspend fun getForecast(cityName:String): ForecastModel? {
-        val request = WeatherAPIService.apiClient.getForecast(cityName)
+    suspend fun getForecast(lat: Double, lon:Double): ForecastModel? {
+        val request = WeatherAPIService.apiClient.getForecast(lat, lon)
         //Check if device has internet connection
         if(request.isSuccessful){
             return request.body()!!

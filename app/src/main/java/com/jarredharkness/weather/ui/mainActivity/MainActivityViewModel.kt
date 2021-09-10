@@ -19,17 +19,17 @@ class MainActivityViewModel: ViewModel() {
     private val _forecastLiveData = MutableLiveData<ForecastModel?>()
     val forecastLiveData: LiveData<ForecastModel?> = _forecastLiveData
 
-    fun refreshData(cityName: String) {
+    fun refreshData(lat: Double, lon:Double) {
         //getDataFromAPI(cityName)
         viewModelScope.launch {
-            val response = repository.getCurrentWeather(cityName)
+            val response = repository.getCurrentWeather(lat, lon)
             _currentWeatherLiveData.postValue(response)
         }
     }
 
-    fun refreshForecast(cityName: String){
+    fun refreshForecast(lat: Double, lon:Double){
         viewModelScope.launch {
-            val forecastResponse = repository.getForecast(cityName)
+            val forecastResponse = repository.getForecast(lat,lon)
 
         }
     }

@@ -19,11 +19,11 @@ object WeatherAPIService {
 
     val apiClient = ApiClient(api)
 
-    suspend fun getDataService(cityName: String): Response<WeatherModel> {
-        return api.getWeather(cityName)
+    suspend fun getDataService(lat: Double, lon:Double): Response<WeatherModel> {
+        return api.getWeather(lat, lon)
     }
 
-    suspend fun getForecastService(cityName: String): Response<ForecastModel> {
-        return api.getForecast(cityName)
+    suspend fun getForecastService(lat: Double, lon:Double): Response<ForecastModel> {
+        return api.getForecast(lat, lon)
     }
 }
