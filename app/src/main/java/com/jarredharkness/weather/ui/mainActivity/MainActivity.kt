@@ -19,11 +19,7 @@ class MainActivity : AppCompatActivity() {
     val viewModel: MainActivityViewModel by lazy {
         ViewModelProvider(this).get(MainActivityViewModel::class.java)
     }
-
     private lateinit var binding: ActivityMainBinding
-
-    private lateinit var GET: SharedPreferences
-    private lateinit var SET: SharedPreferences.Editor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +29,8 @@ class MainActivity : AppCompatActivity() {
 
         Locus.getCurrentLocation(this) { result ->
             result.location?.let {
-                var lat = result.location!!.latitude
-                var lon = result.location!!.longitude
+                val lat = result.location!!.latitude
+                val lon = result.location!!.longitude
                 viewModel.refreshForecast(lat, lon)
                 viewModel.refreshData(lat, lon)
             }
@@ -43,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                     applicationContext,
                     "Unable to get Location. Please check GPS and try again",
                     Toast.LENGTH_LONG
-                )
+                ).show()
             }
         }
 

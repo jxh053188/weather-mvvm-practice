@@ -38,15 +38,15 @@
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
-                android:layout_height="150px"
+                android:layout_height="150dp"
                 android:icon="@drawable/ic_today"
-                android:text="Today" />
+                android:text="@string/today_tab" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
-                android:layout_height="150px"
+                android:layout_height="150dp"
                 android:icon="@drawable/ic_forecast"
-                android:text="Forecast" />
+                android:text="@string/forecast_tab" />
 
         </com.google.android.material.tabs.TabLayout>
 

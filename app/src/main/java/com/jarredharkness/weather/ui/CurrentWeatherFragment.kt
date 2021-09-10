@@ -1,10 +1,6 @@
 package com.jarredharkness.weather.ui
 
-import android.content.ContentValues
-import android.content.SharedPreferences
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -31,9 +27,7 @@ class CurrentWeatherFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        // TODO: Use the ViewModel
-
-        viewModel.currentWeatherLiveData.observe(this){response ->
+        viewModel.currentWeatherLiveData.observe(viewLifecycleOwner){response ->
             if(response == null){
                 Toast.makeText(
                     context,
@@ -43,7 +37,7 @@ class CurrentWeatherFragment : Fragment() {
                 return@observe
             }
 
-            var time = TimeUtils.getTime(response.sys.sunrise.toLong())
+            val time = TimeUtils.getTime(response.sys.sunrise.toLong())
             val rainMM: String = if(response.rain == null){
                 "0.0"
             } else {

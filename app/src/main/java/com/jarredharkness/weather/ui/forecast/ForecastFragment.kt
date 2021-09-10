@@ -6,15 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.jarredharkness.weather.databinding.ForecastFragmentBinding
 import com.jarredharkness.weather.ui.mainActivity.MainActivityViewModel
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jarredharkness.weather.model.forecast.Daily
-import com.jarredharkness.weather.model.forecast.ForecastModel
 import com.jarredharkness.weather.ui.RecyclerViewAdapter
 
 class ForecastFragment : Fragment() {

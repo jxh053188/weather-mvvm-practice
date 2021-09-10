@@ -4,4 +4,6 @@
     <string name="about_option">About</string>
     <string name="ok">Ok</string>
     <string name="about_text">Made by Jarred Harkness in September 2021. Visit www.jarred.tech to see more.</string>
+    <string name="today_tab">Today</string>
+    <string name="forecast_tab">Forecast</string>
 </resources>
