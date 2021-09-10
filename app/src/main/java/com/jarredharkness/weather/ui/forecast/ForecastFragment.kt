@@ -41,7 +41,7 @@ class ForecastFragment : Fragment() {
                 return@observe
             }
             val recyclerViewListItems: List<Daily> = forecastResponse.daily
-            binding.recyclerCard.adapter = RecyclerViewAdapter(recyclerViewListItems)
+            binding.recyclerCard.adapter = RecyclerViewAdapter(recyclerViewListItems, requireContext())
             binding.recyclerCard.layoutManager = LinearLayoutManager(context)
             binding.recyclerCard.setHasFixedSize(true)
         }
