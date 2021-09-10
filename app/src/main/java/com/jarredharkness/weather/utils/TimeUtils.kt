@@ -13,4 +13,11 @@ object TimeUtils {
         val date: LocalDateTime = LocalDateTime.ofInstant(Instant.ofEpochSecond(utcTime), ZoneId.systemDefault())
         return date.format(formatter)
     }
+
+    @SuppressLint("NewApi")
+    fun getDate(utcTime: Long): String {
+        val formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy")
+        val date: LocalDateTime = LocalDateTime.ofInstant(Instant.ofEpochSecond(utcTime), ZoneId.systemDefault())
+        return date.format(formatter)
+    }
 }

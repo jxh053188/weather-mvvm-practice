@@ -12,8 +12,10 @@ import com.jarredharkness.weather.ui.mainActivity.MainActivityViewModel
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.jarredharkness.weather.model.forecast.Daily
 import com.jarredharkness.weather.model.forecast.ForecastModel
+import com.jarredharkness.weather.ui.RecyclerViewAdapter
 
 class ForecastFragment : Fragment() {
 
@@ -29,7 +31,6 @@ class ForecastFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = ForecastFragmentBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -39,8 +40,12 @@ class ForecastFragment : Fragment() {
             if (forecastResponse == null) {
                 return@observe
             }
-            val recyclerViewListItems: List<Daily?> = forecastResponse.daily
+            val recyclerViewListItems: List<Daily> = forecastResponse.daily
+            binding.recyclerCard.adapter = RecyclerViewAdapter(recyclerViewListItems)
+            binding.recyclerCard.layoutManager = LinearLayoutManager(context)
+            binding.recyclerCard.setHasFixedSize(true)
         }
+
     }
 
 }
