@@ -8,6 +8,10 @@ import com.jarredharkness.weather.utils.Constants
 import retrofit2.Response
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 
+/**
+ * Retrofit String Builder to make API call.
+ */
+
 object WeatherAPIService {
     private val api = Retrofit.Builder()
         .baseUrl(Constants.BASE_URL)

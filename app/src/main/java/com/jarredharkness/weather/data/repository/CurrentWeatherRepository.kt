@@ -4,6 +4,8 @@ import com.jarredharkness.weather.model.current.WeatherModel
 import com.jarredharkness.weather.model.forecast.ForecastModel
 import com.jarredharkness.weather.network.WeatherAPIService
 
+
+
 class CurrentWeatherRepository {
     suspend fun getCurrentWeather(lat: Double, lon: Double): WeatherModel? {
         val request = WeatherAPIService.apiClient.getWeather(lat, lon)

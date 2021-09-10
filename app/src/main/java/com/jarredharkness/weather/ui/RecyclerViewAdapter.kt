@@ -2,7 +2,6 @@ package com.jarredharkness.weather.ui
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.jarredharkness.weather.R
 import com.jarredharkness.weather.model.forecast.Daily
-import com.jarredharkness.weather.ui.forecast.ForecastFragment
 import com.jarredharkness.weather.utils.TimeUtils
 
 class RecyclerViewAdapter(private val forecastList: List<Daily>, private val context: Context): RecyclerView.Adapter<RecyclerViewAdapter.recycleViewHolder>() {
@@ -32,10 +30,10 @@ class RecyclerViewAdapter(private val forecastList: List<Daily>, private val con
     @SuppressLint("CheckResult")
     override fun onBindViewHolder(holder: recycleViewHolder, position: Int) {
         val currentItem = forecastList[position]
-        holder.forecastDate.setText(TimeUtils.getDate(currentItem.dt.toLong()))
+        holder.forecastDate.text = TimeUtils.getDate(currentItem.dt.toLong())
         Glide.with(this.context).load("https://openweathermap.org/img/wn/" + currentItem.weather[0].icon + "@2x.png").into(holder.forecastImage)
-        holder.forecastDescription.setText(currentItem.weather[0].description)
-        holder.forecastTemp.setText(currentItem.temp.max.toInt().toString() + "°C")
+        holder.forecastDescription.text = currentItem.weather[0].description
+        holder.forecastTemp.text = currentItem.temp.max.toInt().toString() + "°C"
 
     }
 

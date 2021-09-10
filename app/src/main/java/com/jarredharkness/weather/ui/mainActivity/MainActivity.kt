@@ -33,15 +33,15 @@ class MainActivity : AppCompatActivity() {
 
         Locus.getCurrentLocation(this) { result ->
             result.location?.let {
-               var lat = result.location!!.latitude
-               var lon = result.location!!.longitude
-               viewModel.refreshForecast(lat, lon)
-               viewModel.refreshData(lat, lon)
+                var lat = result.location!!.latitude
+                var lon = result.location!!.longitude
+                viewModel.refreshForecast(lat, lon)
+                viewModel.refreshData(lat, lon)
             }
             result.error?.let {
                 Toast.makeText(
                     applicationContext,
-                    "Unable to get Location",
+                    "Unable to get Location. Please check GPS and try again",
                     Toast.LENGTH_LONG
                 )
             }

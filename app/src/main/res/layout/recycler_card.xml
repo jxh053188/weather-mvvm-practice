@@ -28,6 +28,8 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:text="Date"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             card_view:layout_constraintStart_toEndOf="@+id/forecast_image_cardview"
             card_view:layout_constraintTop_toTopOf="parent" />
 
@@ -38,6 +40,8 @@
             android:layout_marginEnd="32dp"
             android:gravity="end|center_vertical"
             android:text="Temp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />
@@ -50,6 +54,8 @@
             android:layout_marginBottom="16dp"
             android:gravity="top"
             android:text="Condition"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintStart_toEndOf="@+id/forecast_image_cardview" />
 
