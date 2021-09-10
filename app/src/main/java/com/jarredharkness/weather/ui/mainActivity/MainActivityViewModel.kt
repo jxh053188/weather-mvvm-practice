@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.jarredharkness.weather.data.repository.CurrentWeatherRepository
 import com.jarredharkness.weather.model.current.WeatherModel
 import com.jarredharkness.weather.model.forecast.ForecastModel
-import io.reactivex.disposables.CompositeDisposable
 import kotlinx.coroutines.launch
 
 class MainActivityViewModel: ViewModel() {
@@ -20,16 +19,15 @@ class MainActivityViewModel: ViewModel() {
     val forecastLiveData: LiveData<ForecastModel?> = _forecastLiveData
 
     fun refreshData(lat: Double, lon:Double) {
-        //getDataFromAPI(cityName)
         viewModelScope.launch {
             val response = repository.getCurrentWeather(lat, lon)
             _currentWeatherLiveData.postValue(response)
         }
     }
-
     fun refreshForecast(lat: Double, lon:Double){
         viewModelScope.launch {
             val forecastResponse = repository.getForecast(lat,lon)
+            _forecastLiveData.postValue(forecastResponse)
 
         }
     }

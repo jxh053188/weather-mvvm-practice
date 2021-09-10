@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">weather</string>
     <string name="error_message">Error!</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="about_option">About</string>
+    <string name="ok">Ok</string>
+    <string name="about_text">Made by Jarred Harkness in September 2021. Visit www.jarred.tech to see more.</string>
 </resources>

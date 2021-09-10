@@ -1,14 +1,19 @@
 package com.jarredharkness.weather.ui.forecast
 
-import androidx.lifecycle.ViewModelProvider
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.jarredharkness.weather.databinding.ForecastFragmentBinding
 import com.jarredharkness.weather.ui.mainActivity.MainActivityViewModel
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.lifecycleScope
+import com.jarredharkness.weather.model.forecast.Daily
+import com.jarredharkness.weather.model.forecast.ForecastModel
 
 class ForecastFragment : Fragment() {
 
@@ -24,17 +29,17 @@ class ForecastFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = ForecastFragmentBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        //viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
-        // TODO: Use the ViewModel
-        viewModel.currentWeatherLiveData.observe(viewLifecycleOwner){response ->
-            if (response != null) {
-                binding.fragmentTextView.text = response.name
+        viewModel.forecastLiveData.observe(this){forecastResponse ->
+            if (forecastResponse == null) {
+                return@observe
             }
+            val recyclerViewListItems: List<Daily?> = forecastResponse.daily
         }
     }
 

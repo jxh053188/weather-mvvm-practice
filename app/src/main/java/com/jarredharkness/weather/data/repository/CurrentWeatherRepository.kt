@@ -19,9 +19,11 @@ class CurrentWeatherRepository {
         val request = WeatherAPIService.apiClient.getForecast(lat, lon)
         //Check if device has internet connection
         if(request.isSuccessful){
+            println(request.body())
             return request.body()!!
+        }else{
+            println("not successful")
         }
-
         return null
     }
 }

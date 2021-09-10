@@ -16,7 +16,7 @@ interface WeatherAPI {
         @Query("lon") lon: Double
     ): Response<WeatherModel>
 
-    @GET("data/2.5/forecast?&units=metric&appid=a7c662a3979ffa3d1f15a6a6c66d840f")
+    @GET("data/2.5/onecall?&units=metric&appid=a7c662a3979ffa3d1f15a6a6c66d840f")
     suspend fun getForecast(
         @Query("lat") lat: Double,
         @Query("lon") lon: Double

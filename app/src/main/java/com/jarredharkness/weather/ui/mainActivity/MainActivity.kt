@@ -3,9 +3,13 @@ package com.jarredharkness.weather.ui.mainActivity
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.birjuvachhani.locus.Locus
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayoutMediator
 import com.jarredharkness.weather.R
 import com.jarredharkness.weather.databinding.ActivityMainBinding
@@ -21,21 +25,18 @@ class MainActivity : AppCompatActivity() {
     private lateinit var GET: SharedPreferences
     private lateinit var SET: SharedPreferences.Editor
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        GET = getSharedPreferences(packageName, MODE_PRIVATE)
-        SET = GET.edit()
+
         Locus.getCurrentLocation(this) { result ->
             result.location?.let {
-                var lat = result.location!!.latitude
-                var lon = result.location!!.longitude
-
-                viewModel.refreshData(lat, lon)
-
+               var lat = result.location!!.latitude
+               var lon = result.location!!.longitude
+               viewModel.refreshForecast(lat, lon)
+               viewModel.refreshData(lat, lon)
             }
             result.error?.let {
                 Toast.makeText(
@@ -45,7 +46,6 @@ class MainActivity : AppCompatActivity() {
                 )
             }
         }
-
 
         val tableLayout = binding.tabLayout
         val viewPager2 = binding.viewPager
@@ -64,5 +64,25 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }.attach()
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.hamburger_menu, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.about_option -> {
+            MaterialAlertDialogBuilder(this )
+                .setTitle(resources.getString(R.string.about_option))
+                .setMessage(resources.getString(R.string.about_text))
+                .setPositiveButton(resources.getString(R.string.ok)) { dialog, which ->
+                    // Respond to neutral button press
+                }.show()
+            true
+        }
+        else -> {
+            super.onOptionsItemSelected(item)
+        }
+
     }
 }

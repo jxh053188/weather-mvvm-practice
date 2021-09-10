@@ -20,12 +20,7 @@ class CurrentWeatherFragment : Fragment() {
 
     private lateinit var _binding: CurrentWeatherFragmentBinding
     val binding get() = _binding
-
-    private lateinit var GET: SharedPreferences
-    private lateinit var SET: SharedPreferences.Editor
-
     private val viewModel : MainActivityViewModel by activityViewModels()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,7 +31,6 @@ class CurrentWeatherFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-       // viewModel = ViewModelProvider(this).get(CurrentWeatherViewModel::class.java)
         // TODO: Use the ViewModel
 
         viewModel.currentWeatherLiveData.observe(this){response ->

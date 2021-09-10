@@ -5,19 +5,31 @@ import com.google.gson.annotations.SerializedName
 import com.google.gson.annotations.Expose
 
 data class ForecastModel(
-    @SerializedName("city")
+    @SerializedName("alerts")
     @Expose
-    val city: City,
-    @SerializedName("cnt")
+    val alerts: List<Alert>,
+    @SerializedName("current")
     @Expose
-    val cnt: Int,
-    @SerializedName("cod")
+    val current: Current,
+    @SerializedName("daily")
     @Expose
-    val cod: String,
-    @SerializedName("list")
+    val daily: List<Daily>,
+    @SerializedName("hourly")
     @Expose
-    val list: List<ForecastList>,
-    @SerializedName("message")
+    val hourly: List<Hourly>,
+    @SerializedName("lat")
     @Expose
-    val message: Int
+    val lat: Double,
+    @SerializedName("lon")
+    @Expose
+    val lon: Double,
+    @SerializedName("minutely")
+    @Expose
+    val minutely: List<Minutely>,
+    @SerializedName("timezone")
+    @Expose
+    val timezone: String,
+    @SerializedName("timezone_offset")
+    @Expose
+    val timezoneOffset: Int
 )
