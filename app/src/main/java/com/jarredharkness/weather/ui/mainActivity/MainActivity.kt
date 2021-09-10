@@ -1,22 +1,13 @@
 package com.jarredharkness.weather.ui.mainActivity
 
-import android.content.ContentValues.TAG
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Toast
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
-import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
 import com.jarredharkness.weather.R
 import com.jarredharkness.weather.databinding.ActivityMainBinding
 import com.jarredharkness.weather.ui.FragmentAdapter
-import com.jarredharkness.weather.ui.forecast.ForecastFragment
-import com.jarredharkness.weather.utils.TimeUtils
 
 class MainActivity : AppCompatActivity() {
     val viewModel: MainActivityViewModel by lazy {
@@ -47,10 +38,12 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(tableLayout, viewPager2) { tab, position ->
             when (position) {
                 0 -> {
-                    tab.text = "Current Weather"
+                    tab.text = "Today"
+                    tab.setIcon(R.drawable.ic_today)
                 }
                 1 -> {
                     tab.text = "Forecast"
+                    tab.setIcon(R.drawable.ic_forecast)
                 }
             }
         }.attach()

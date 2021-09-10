@@ -71,19 +71,6 @@ class CurrentWeatherFragment : Fragment() {
                 .into(binding.imgWeatherPictures)
         }
 
-
-//        var cityName = GET.getString("cityName", "London")
-//        binding.edtCityName.setText(cityName)
-//        viewModel.refreshData(cityName!!
-
-        binding.edtCityName.setOnClickListener {
-            val cityName = binding.edtCityName.text.toString()
-            SET.putString("cityName", cityName)
-            SET.apply()
-            viewModel.refreshData(cityName)
-            Log.i(ContentValues.TAG, "onCreate: " + cityName)
-        }
-
     }
 
 }

@@ -6,43 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.CurrentWeatherFragment">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal"
-        android:padding="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:boxCornerRadiusBottomEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusTopStart="20dp"
-            app:endIconMode="clear_text"
-            app:startIconDrawable="@drawable/ic_search">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_city_name"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="City Name"
-                android:inputType="text"
-                android:lines="1"
-                android:maxLines="1" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
-
 
     <TextView
         android:id="@+id/city_name_textView"
@@ -57,18 +20,6 @@
         app:layout_constraintBottom_toTopOf="@+id/img_weather_pictures"
         app:layout_constraintEnd_toStartOf="@+id/tv_degree"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/forecast_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:elevation="10dp"
-        android:foregroundGravity="center"
-        android:src="@drawable/ic_forecast"
-        app:layout_constraintBottom_toTopOf="@+id/tv_degree"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/weather_description_textview"
@@ -111,7 +62,7 @@
         android:id="@+id/cardView"
         android:layout_width="375dp"
         android:layout_height="144dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="60dp"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
